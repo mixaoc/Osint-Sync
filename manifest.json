@@ -1,0 +1,43 @@
+
+{
+  "manifest_version": 3,
+  "name": "Osint Sync",
+  "version": "1.2",
+  "description": "Professional OSINT extension for searching usernames & email  api intelx & osint osint industrie ",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Osint Sync"
+  },
+  "permissions": [
+    
+    "contextMenus",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://en.gravatar.com/*",
+    "https://playerdb.co/*",
+    "https://api.github.com/*",
+    "https://www.reddit.com/*",
+    "https://api.ivr.fi/*",
+    "https://mixaoc.com/*",
+    "https://ipapi.co/*",
+    "https://api.ipify.org/*",
+    "https://instagram.com/*",
+    "https://twitter.com/*",
+    "https://facebook.com/*",
+    "https://youtube.com/*",
+    "https://tiktok.com/*",
+    "http://147.185.221.31:55641/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

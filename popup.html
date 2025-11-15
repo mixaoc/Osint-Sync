@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osint Sync</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- AUTH SCREEN -->
+        <div id="authScreen" class="auth-screen">
+            <div class="header">
+                <div class="logo-container">
+                    <img src="https://mixaoc.com/lib/mixaoc.png" alt="Logo" class="logo">
+                </div>
+                <h1 class="title">Osint Sync </h1>
+                <p class="subtitle">Mixaoc Osint Industrie</p>
+            </div>
+
+            <div class="auth-form-container">
+                <h3 class="auth-title">Create Your Account</h3>
+                <p class="auth-subtitle">Enter your information to get started</p>
+                
+                <div class="form-group">
+                    <input type="text" id="registerUsername" class="form-input" placeholder="Choose a username" autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="registerEmail" class="form-input" placeholder="Your email address" autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="registerPassword" class="form-input" placeholder="Choose a password" autocomplete="new-password">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm password" autocomplete="new-password">
+                </div>
+                
+                <div class="terms-container">
+                    <input type="checkbox" id="acceptTerms" class="terms-checkbox">
+                    <label for="acceptTerms" class="terms-label">
+                        I accept the <a href="#" id="privacyLink">Privacy Policy</a> and 
+                        <a href="#" id="termsLink">Terms of Service</a>
+                    </label>
+                </div>
+                
+                <button id="registerBtn" class="auth-btn">
+                    <span class="btn-text">CREATE ACCOUNT</span>
+                </button>
+                
+                <div id="authMessage" class="auth-message" style="display: none;"></div>
+            </div>
+
+            <div class="footer">
+                <p>Developed by <a href="https://github.com/mixaoc" target="_blank" class="credit-link">@mixaoc</a></p>
+            </div>
+        </div>
+
+        <!-- MAIN SCREEN (hidden initially) -->
+        <div id="mainScreen" style="display: none;">
+            <div class="header">
+                <div class="logo-container">
+                    <img src="https://mixaoc.com/lib/mixaoc.png" alt="Logo" class="logo">
+                </div>
+                <h1 class="title">Osint Sync</h1>
+                <p class="subtitle">Advanced Intelligence Research Platform</p>
+                <div class="user-info" id="userInfo"></div>
+                <div class="credits-info" id="creditsInfo">
+                    <i class="fas fa-coins"></i> <span id="creditsCount">0</span> credits
+                </div>
+            </div>
+
+            <!-- TAB NAVIGATION -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="username">
+                    <span><i class="fas fa-user"></i> USERNAME</span>
+                </button>
+                <button class="tab-btn" data-tab="email">
+                    <span><i class="fas fa-envelope"></i> EMAIL</span>
+                </button>
+                <button class="tab-btn" data-tab="number">
+                    <span><i class="fas fa-phone"></i> NUMBER</span>
+                </button>
+                <button class="tab-btn" data-tab="fullname">
+                    <span><i class="fas fa-id-card"></i> FULL NAME</span>
+                </button>
+                <button class="tab-btn" data-tab="history">
+                    <span><i class="fas fa-history"></i> HISTORY</span>
+                </button>
+                <button class="tab-btn" data-tab="credits">
+                    <span><i class="fas fa-coins"></i> CREDITS</span>
+                </button>
+                <button class="tab-btn" id="exportBtn">
+                    <span><i class="fas fa-download"></i> EXPORT</span>
+                </button>
+                <button class="tab-btn" id="logoutBtn">
+                    <span><i class="fas fa-sign-out-alt"></i> LOGOUT</span>
+                </button>
+            </div>
+
+            <!-- CONTENT AREA -->
+            <div class="content-area">
+                <!-- USERNAME SEARCH TAB -->
+                <div class="tab-content active" id="usernameTab">
+                    <div class="search-section">
+                        <div class="search-box">
+                            <input type="text" id="usernameInput" placeholder="Enter a username..." class="search-input" pattern="[a-zA-Z0-9_\-\.]+" title="Only letters, numbers, underscores, hyphens and dots are allowed">
+                            <button id="searchUsernameBtn" class="search-btn">
+                                <span class="btn-text">SEARCH</span>
+                                <span class="btn-icon"><i class="fas fa-search"></i></span>
+                            </button>
+                            <button id="exportUsernameBtn" class="export-btn" title="Export Results">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="usernameResults" class="results-container"></div>
+                </div>
+
+                <!-- EMAIL SEARCH TAB -->
+                <div class="tab-content" id="emailTab">
+                    <div class="search-section">
+                        <div class="search-box">
+                            <input type="email" id="emailInput" placeholder="Enter an email address..." class="search-input">
+                            <button id="searchEmailBtn" class="search-btn">
+                                <span class="btn-text">ANALYZE WITH GHUNT</span>
+                                <span class="btn-icon"><i class="fas fa-envelope-open"></i></span>
+                            </button>
+                            <button id="exportEmailBtn" class="export-btn" title="Export Results">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                        <div class="cooldown-notice" id="cooldownNotice" style="display: none;">
+                            <i class="fas fa-clock"></i> Please wait <span id="cooldownTimer">30</span> seconds before searching the same query again
+                        </div>
+                    </div>
+                    <div id="emailResults" class="results-container"></div>
+                </div>
+
+                <!-- NUMBER SEARCH TAB -->
+                <div class="tab-content" id="numberTab">
+                    <div class="search-section">
+                        <div class="country-selector">
+                            <select id="countryCode" class="country-select">
+                                <option value="33">🇫🇷 France +33</option>
+                                <option value="1">🇺🇸 USA +1</option>
+                                <option value="44">🇬🇧 UK +44</option>
+                                <option value="49">🇩🇪 Germany +49</option>
+                                <option value="39">🇮🇹 Italy +39</option>
+                                <option value="34">🇪🇸 Spain +34</option>
+                                <option value="1">🇨🇦 Canada +1</option>
+                                <option value="61">🇦🇺 Australia +61</option>
+                                <option value="32">🇧🇪 Belgium +32</option>
+                                <option value="41">🇨🇭 Switzerland +41</option>
+                            </select>
+                        </div>
+                        <div class="search-box">
+                            <input type="tel" id="phoneInput" placeholder="Enter phone number..." class="search-input">
+                            <button id="searchPhoneBtn" class="search-btn">
+                                <span class="btn-text">SEARCH NUMBER</span>
+                                <span class="btn-icon"><i class="fas fa-phone"></i></span>
+                            </button>
+                            <button id="exportPhoneBtn" class="export-btn" title="Export Results">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="phoneResults" class="results-container"></div>
+                </div>
+
+                <!-- FULL NAME SEARCH TAB -->
+                <div class="tab-content" id="fullnameTab">
+                    <div class="search-section">
+                        <div class="search-box">
+                            <input type="text" id="fullnameInput" placeholder="Enter full name..." class="search-input">
+                            <button id="searchFullnameBtn" class="search-btn">
+                                <span class="btn-text">SEARCH FULL NAME</span>
+                                <span class="btn-icon"><i class="fas fa-id-card"></i></span>
+                            </button>
+                            <button id="exportFullnameBtn" class="export-btn" title="Export Results">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                        <div class="search-options">
+                            <div class="option-group">
+                                <label for="searchType">Search Type:</label>
+                                <select id="searchType" class="option-select">
+                                    <option value="insee">Gouv DATA (RNIPP) (France)</option>
+                                    <option value="facebook">SSA & INTERPOL </option>
+                                </select>
+                            </div>
+                            <div class="option-group" id="postalCodeGroup">
+                                <label for="postalCode">Postal Code (optional):</label>
+                                <input type="text" id="postalCode" class="option-input" placeholder="e.g., 75001">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="fullnameResults" class="results-container"></div>
+                </div>
+
+                <!-- HISTORY TAB -->
+                <div class="tab-content" id="historyTab">
+                    <div class="search-section">
+                        <div class="history-controls">
+                            <button id="refreshHistoryBtn" class="search-btn">
+                                <span class="btn-text">REFRESH HISTORY</span>
+                                <span class="btn-icon"><i class="fas fa-sync-alt"></i></span>
+                            </button>
+                            <button id="clearHistoryBtn" class="search-btn danger-btn">
+                                <span class="btn-text">CLEAR HISTORY</span>
+                                <span class="btn-icon"><i class="fas fa-trash"></i></span>
+                            </button>
+                            <button id="exportHistoryBtn" class="export-btn" title="Export History">
+                                <i class="fas fa-download"></i> EXPORT ALL
+                            </button>
+                        </div>
+                    </div>
+                    <div id="historyResults" class="results-container"></div>
+                </div>
+
+                <!-- CREDITS TAB -->
+                <div class="tab-content" id="creditsTab">
+                    <div class="credits-section">
+                        <div class="credits-balance">
+                            <h3><i class="fas fa-coins"></i> Your Credits</h3>
+                            <div class="balance-amount" id="balanceAmount">0</div>
+                            <p class="balance-info">Each search costs 1 credit</p>
+                        </div>
+                        
+                        <div class="purchase-section">
+                            <h3><i class="fas fa-shopping-cart"></i>Free Credits</h3>
+                            <div class="credit-package">
+                                <div class="package-header">
+                                    <i class="fas fa-crown"></i>
+                                    <span class="package-name">API INTELX & Osint Industrie Access</span>
+                                </div>
+                                <div class="package-details">
+                                    <div class="credits-amount">1000 credits</div>
+                                    <div class="price">Join Telegram</div>
+                                    <div class="payment-method">
+                                        <i class="fab fa-telegram"></i> https://t.me/+TcNkRGkKodBjNzI8
+                                    </div>
+                                </div>
+                                <button id="purchaseBtn" class="purchase-btn">
+                                    <i class="fas fa-bolt"></i> Join
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="payment-section" id="paymentSection" style="display: none;">
+                            <h3><i class="fas fa-qrcode"></i> Payment Instructions</h3>
+                            <div class="payment-info">
+                                <div class="ltc-address-container">
+                                    <label>Litecoin Address:</label>
+                                    <div class="address-display">
+                                        <span id="ltcAddress">Lctg5okp15rtR6hjM86YjHL38GxYJNxoNR</span>
+                                        <button id="copyAddressBtn" class="copy-btn">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="payment-amount">
+                                    <label>Amount to send:</label>
+                                    <div class="amount">$2.00 USD</div>
+                                </div>
+                                <div class="qr-code-container">
+                                    <img src="https://mixaoc.com/extension/qrcode.png" alt="LTC QR Code" class="qr-code">
+                                </div>
+                                <div class="payment-instructions">
+                                    <p><i class="fas fa-info-circle"></i> Send exactly $5.00 USD in LTC to the address above</p>
+                                    <p><i class="fas fa-clock"></i> Credits will be added manually after payment verification</p>
+                                    <p><i class="fas fa-receipt"></i> Payment ID: <span id="paymentId"></span></p>
+                                </div>
+                                <button id="verifyPaymentBtn" class="verify-btn">
+                                    <i class="fas fa-check-circle"></i> I HAVE SENT PAYMENT
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXPORT TAB -->
+                <div class="tab-content" id="exportTab">
+                    <div class="export-section">
+                        <h3><i class="fas fa-download"></i> Export Results</h3>
+                        <div class="export-options">
+                            <div class="export-option">
+                                <h4>Username Search Results</h4>
+                                <p>Export all username search results as HTML</p>
+                                <button id="exportUsernameAllBtn" class="export-btn-large">
+                                    <i class="fas fa-download"></i> Export Username Results
+                                </button>
+                            </div>
+                            <div class="export-option">
+                                <h4>Email Search Results</h4>
+                                <p>Export all email analysis results as HTML</p>
+                                <button id="exportEmailAllBtn" class="export-btn-large">
+                                    <i class="fas fa-download"></i> Export Email Results
+                                </button>
+                            </div>
+                            <div class="export-option">
+                                <h4>Phone Number Results</h4>
+                                <p>Export all phone number search results as HTML</p>
+                                <button id="exportPhoneAllBtn" class="export-btn-large">
+                                    <i class="fas fa-download"></i> Export Phone Results
+                                </button>
+                            </div>
+                            <div class="export-option">
+                                <h4>Full Name Results</h4>
+                                <p>Export all full name search results as HTML</p>
+                                <button id="exportFullnameAllBtn" class="export-btn-large">
+                                    <i class="fas fa-download"></i> Export Full Name Results
+                                </button>
+                            </div>
+                            <div class="export-option">
+                                <h4>Complete History</h4>
+                                <p>Export entire search history as HTML</p>
+                                <button id="exportCompleteHistoryBtn" class="export-btn-large">
+                                    <i class="fas fa-download"></i> Export Complete History
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loadingIndicator" class="loading-container" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Analysis in progress...</p>
+            </div>
+
+            <div class="footer">
+                <p>Developed by <a href="https://github.com/mixaoc" target="_blank" class="credit-link">@mixaoc</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Privacy Policy</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>This extension collects minimal data necessary for functionality:</p>
+                <ul>
+                    <li>Username and email for account creation</li>
+                    <li>Search queries to provide OSINT services</li>
+                    <li>IP address for rate limiting and security</li>
+                </ul>
+                <p>We do not sell your data to third parties. All searches are logged for service improvement and abuse prevention.</p>
+                <p>By using this service, you agree to use it responsibly and legally.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Canvas for particles -->
+    <canvas id="particlesCanvas"></canvas>
+
+    <script src="popup.js"></script>
+</body>
+</html>
