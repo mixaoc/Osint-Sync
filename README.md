@@ -4,6 +4,20 @@
 [![Chrome Web Store](https://img.shields.io/badge/Chrome-Extension-blue.svg)](https://chrome.google.com/webstore)
 [![Firefox Add-on](https://img.shields.io/badge/Firefox-Add--on-orange.svg)](https://addons.mozilla.org/)
 [![Version](https://img.shields.io/badge/version-1.1-green.svg)]()
+[![Made with Love](https://img.shields.io/badge/Made%20with-Love-red.svg)](https://github.com/mixaoc)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/mixaoc/osint-sync/graphs/commit-activity)
+[![GitHub commits](https://img.shields.io/github/commit-activity/m/mixaoc/osint-sync)](https://github.com/mixaoc/osint-sync/commits/main)
+
+<div align="center">
+
+![OSINT Sync Banner](https://camo.githubusercontent.com/d4318ebfb8471d3b3ea630f8b0a82cdc9e32fb6b5474f06b553c59a60c94a2d2/68747470733a2f2f6d6978616f632e636f6d2f657874656e73696f6e2f696d6167652f3334333433342e706e67)
+
+**Search smarter. Investigate faster. Discover more.**
+
+[Installation](#installation) • [Features](#features) • [Documentation](#how-to-use) • [Contributing](#contributing)
+
+</div>
 
 A powerful browser extension for Open Source Intelligence (OSINT) research. Search usernames, emails, and phone numbers across 20+ platforms with integrated access to premium OSINT tools like GHunt, IntelX, Epieos, and OSINT Industries.
 
@@ -48,6 +62,17 @@ Powered by industry-leading OSINT APIs:
 ---
 
 ## Technology Stack
+
+<div align="center">
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Chrome](https://img.shields.io/badge/Chrome-4285F4?style=for-the-badge&logo=GoogleChrome&logoColor=white)
+![Firefox](https://img.shields.io/badge/Firefox-FF7139?style=for-the-badge&logo=Firefox&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+
+</div>
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **APIs**: REST API integration with multiple OSINT platforms
@@ -359,6 +384,35 @@ Need help? Have questions?
 
 ---
 
+## Statistics & Analytics
+
+![GitHub stars](https://img.shields.io/github/stars/mixaoc/osint-sync?style=for-the-badge&logo=github&color=yellow)
+![GitHub forks](https://img.shields.io/github/forks/mixaoc/osint-sync?style=for-the-badge&logo=github&color=blue)
+![GitHub issues](https://img.shields.io/github/issues/mixaoc/osint-sync?style=for-the-badge&logo=github&color=red)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/mixaoc/osint-sync?style=for-the-badge&logo=github&color=green)
+![GitHub last commit](https://img.shields.io/github/last-commit/mixaoc/osint-sync?style=for-the-badge&logo=github)
+![GitHub repo size](https://img.shields.io/github/repo-size/mixaoc/osint-sync?style=for-the-badge&logo=github)
+
+### Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=mixaoc/osint-sync&type=Date)](https://star-history.com/#mixaoc/osint-sync&Date)
+
+### Contributors
+
+[![Contributors](https://contrib.rocks/image?repo=mixaoc/osint-sync)](https://github.com/mixaoc/osint-sync/graphs/contributors)
+
+### Activity Graph
+
+![Activity Graph](https://repobeats.axiom.co/api/embed/your-repo-id.svg)
+
+### Code Frequency
+
+![Code Frequency](https://img.shields.io/github/commit-activity/m/mixaoc/osint-sync?style=for-the-badge&logo=github)
+![Top Language](https://img.shields.io/github/languages/top/mixaoc/osint-sync?style=for-the-badge&logo=javascript&color=yellow)
+![Code Size](https://img.shields.io/github/languages/code-size/mixaoc/osint-sync?style=for-the-badge&logo=github)
+
+---
+
 ## Acknowledgments
 
 Special thanks to:
@@ -416,3 +470,26 @@ Special thanks to:
 ---
 
 **Made by [@mixaoc](https://github.com/mixaoc)**
+
+<div align="center">
+
+### Show your support
+
+Give a ⭐️ if this project helped you!
+
+[![GitHub followers](https://img.shields.io/github/followers/mixaoc?style=social)](https://github.com/mixaoc)
+[![Twitter Follow](https://img.shields.io/twitter/follow/mixaoc?style=social)](https://twitter.com/mixaoc)
+
+### Support the Project
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-yellow.svg?style=for-the-badge&logo=buy-me-a-coffee)](https://www.buymeacoffee.com/mixaoc)
+[![PayPal](https://img.shields.io/badge/PayPal-donate-blue.svg?style=for-the-badge&logo=paypal)](https://paypal.me/mixaoc)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-support-red.svg?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/mixaoc)
+
+---
+
+Copyright © 2024 [@mixaoc](https://github.com/mixaoc)
+
+This project is [MIT](LICENSE) licensed.
+
+</div>fd
