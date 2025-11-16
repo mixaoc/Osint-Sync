@@ -4,20 +4,6 @@
 [![Chrome Web Store](https://img.shields.io/badge/Chrome-Extension-blue.svg)](https://chrome.google.com/webstore)
 [![Firefox Add-on](https://img.shields.io/badge/Firefox-Add--on-orange.svg)](https://addons.mozilla.org/)
 [![Version](https://img.shields.io/badge/version-1.1-green.svg)]()
-[![Made with Love](https://img.shields.io/badge/Made%20with-Love-red.svg)](https://github.com/mixaoc)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/mixaoc/osint-sync/graphs/commit-activity)
-[![GitHub commits](https://img.shields.io/github/commit-activity/m/mixaoc/osint-sync)](https://github.com/mixaoc/osint-sync/commits/main)
-
-<div align="center">
-
-![OSINT Sync Banner](https://camo.githubusercontent.com/d4318ebfb8471d3b3ea630f8b0a82cdc9e32fb6b5474f06b553c59a60c94a2d2/68747470733a2f2f6d6978616f632e636f6d2f657874656e73696f6e2f696d6167652f3334333433342e706e67)
-# osint-sync - Professional OSINT Browser Extension
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Chrome Web Store](https://img.shields.io/badge/Chrome-Extension-blue.svg)](https://chrome.google.com/webstore)
-[![Firefox Add-on](https://img.shields.io/badge/Firefox-Add--on-orange.svg)](https://addons.mozilla.org/)
-[![Version](https://img.shields.io/badge/version-1.1-green.svg)]()
 
 A powerful browser extension for Open Source Intelligence (OSINT) research. Search usernames, emails, and phone numbers across 20+ platforms with integrated access to premium OSINT tools like GHunt, IntelX, Epieos, and OSINT Industries.
 
