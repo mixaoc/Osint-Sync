@@ -67,7 +67,7 @@ Powered by industry-leading OSINT APIs:
 4. Create your account and start searching
 
 ### Firefox Add-ons
-1. Visit [Firefox Add-ons](#) (link coming soon)
+1. Visit [Firefox Add-ons]([https://addons.mozilla.org/en-GB/firefox/addon/osint-sync/](https://addons.mozilla.org/en-GB/firefox/addon/osint-sync/)) (Avaiable)
 2. Click "Add to Firefox"
 3. Pin the extension to your toolbar
 4. Create your account and start searching
